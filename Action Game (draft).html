@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html style="font-family:Calibri">
+<title>(>o.o)> RUN!</title>
+    <style>
+        #frame {
+            width: 1000px;
+            height: 200px;
+            position: relative;
+            background: #ffffff;
+            color:black;
+            margin-left:auto;
+            margin-right:auto;
+            overflow:hidden;
+        }
+
+        #character {
+            position:relative;
+        }
+    </style>
+<body style="background:black;color:#ffffff;font-size:40px">
+
+    
+    <center><h1>(>o.o)> RUN!</h1></center>
+    
+    <center>
+    <p>Level: </p>
+    <p id="level">1</p>
+    </center>
+
+    
+    <div id="frame" type="button" onclick="startMe()" style="border:5px solid gray;" >
+        <br><br>
+        <div id="character" onkeydown="mRightLeft()"><center>Start!</center></div>
+        <div id="enemy1"></div>
+        <div id="enemy2"></div>
+    </div>
+    
+    <script>
+    //Resources
+        //sprite resource
+        let sStart = "(o.o)";
+        let sRight ="(>o.o)>";
+        let sLeft = "<(o.o<)";
+        let sEnd = "(-.-)";
+        let sprite = sStart;
+
+        //enemy resource
+        let eRight = "<";
+        let eLeft = ">";
+        let eUp = "|";
+        let eDown = "^";
+
+        //coordinate resource
+        let cox = 450;
+        let x = cox+"px";
+        let coy = 0;
+        let y = coy+"px";
+        const add = 15;
+
+    //functions
+        //start function
+        function startMe() {
+            movementFunction();
+            character.innerHTML = sprite;
+            character.style.left = x;
+            character.style.top = y;
+        }
+        
+        //lose function
+        function loseMe() {
+            
+        }
+
+        //movement function event
+        function movementFunction() {
+        document.addEventListener("keydown", function(event) {
+            if (event.keyCode == 39) {
+                rightMe();
+            } else if (event.keyCode == 37) {
+                leftMe();
+            } else if (event.keyCode == 38) {
+                upMe();
+            } else if (event.keyCode == 40) {
+                downMe();
+                } else {null}
+        });
+        }
+        
+            //move to the right
+        function rightMe() {
+            if(cox < 875) {
+                cox += add;
+                x = cox+"px";
+                sprite = sRight;
+                character.innerHTML = sprite;
+                character.style.left = x;
+            } else {null}
+        }
+
+            //move to the left
+        function leftMe() {
+            if(cox > 0) {
+                cox -= add;
+                x = cox+"px";
+                sprite = sLeft;
+                character.innerHTML = sprite;
+                character.style.left = x;
+            } else {null}
+        }
+
+            //move up
+        function upMe() {
+            if(coy < 100) {
+                coy -= add;
+                y = coy+"px";
+                sprite = sLeft;
+                character.innerHTML = sprite;
+                character.style.top = y;
+            } else {null}
+        }
+
+            //move down
+        function upMe() {
+            if(coy > -100) {
+                coy -= add;
+                y = coy+"px";
+                character.style.top = y;
+            } else {null}
+        }
+
+            //move down
+        function downMe() {
+            if(coy < 60) {
+                coy += add;
+                y = coy+"px";
+                character.style.top = y;
+            } else {null}
+        }
+
+        //enemy trigger function
+        function eTrigger() {
+            document.getElementById("enemy1").innerHTML = eLeft;
+        }
+        
+    </script>    
+    
+</body>
+</html>
