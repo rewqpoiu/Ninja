@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<body>
+<button onclick="gameStart()">Start</button>
+
+<p id="blank"></p>
+
+<img src="../assets/idle_r.gif" id="character" style="width:100px;height:100px;">
+
+<script>
+var char = document.getElementById("character");
+var idle_r = "../assets/idle_r.gif";
+var idle_l = "../assets/idle_l.gif";
+var run_r = "../assets/run_r.gif";
+var run_l = "../assets/run_l.gif";
+
+// Game has started! Adds event listener for movement
+function gameStart() {
+    document.getElementById("blank").innerHTML = "Game has started!";
+
+    // Running
+    document.addEventListener("keydown",(event) => {
+        // Right arrow key is 39 and "d" is 68.
+        if(event.keyCode === 39 || event.keyCode === 68) {
+            playRun_r()
+        }
+        
+        // Left arrow key is 37 and "d" is 65.
+        if(event.keyCode === 37 || event.keyCode === 65) {
+            playRun_l()
+        }
+    })
+
+    // When char stops running
+    document.addEventListener("keyup",(event) => {
+        // Right arrow key is 39 and "d" is 68.
+        if(event.keyCode === 39 || event.keyCode === 68) {
+            playIdle_r()
+        }
+        
+        // Left arrow key is 37 and "d" is 65.
+        if(event.keyCode === 37 || event.keyCode === 65) {
+            playIdle_l()
+        }
+    })
+
+    // Jumping
+    document.addEventListener("keyup",(event) => {
+        // Right arrow key is 32 and "d" is 38.
+        if(event.keyCode === 32 || event.keyCode === 38) {
+            playJump_r()
+        }
+    })
+}
+
+// Movement functions
+function playIdle_r() {
+    const newChar = char.cloneNode();
+    newChar.src = idle_r;
+    char.replaceWith(newChar);
+    char = newChar;
+}
+
+function playIdle_l() {
+    const newChar = char.cloneNode();
+    newChar.src = idle_l;
+    char.replaceWith(newChar);
+    char = newChar;
+}
+
+function playRun_r() {
+    const newChar = char.cloneNode();
+    newChar.src = run_r;
+    char.replaceWith(newChar);
+    char = newChar;
+}
+
+function playRun_l() {
+    const newChar = char.cloneNode();
+    newChar.src = run_l;
+    char.replaceWith(newChar);
+    char = newChar;
+}
+
+function playJump_r() {
+    
+}
+
+function playJump_l() {
+    
+}
+
+</script>
+</body>
+</html>
