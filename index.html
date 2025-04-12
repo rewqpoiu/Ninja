@@ -4,15 +4,16 @@
 <button onclick="gameStart()">Start</button>
 
 <p id="blank"></p>
-
-<img src="../assets/idle_r.gif" id="character" style="width:100px;height:100px;">
+<button onclick="">JUMP</button>
+<img src="idle_r.gif" id="character" style="width:100px;height:100px;">
 
 <script>
 var char = document.getElementById("character");
-var idle_r = "../assets/idle_r.gif";
-var idle_l = "../assets/idle_l.gif";
-var run_r = "../assets/run_r.gif";
-var run_l = "../assets/run_l.gif";
+var idle_r = "idle_r.gif";
+var idle_l = "idle_l.gif";
+var run_r = "run_r.gif";
+var run_l = "run_l.gif";
+var jump_r = "idle_r.gif";
 
 // Game has started! Adds event listener for movement
 function gameStart() {
@@ -83,7 +84,7 @@ function playRun_l() {
 }
 
 function playJump_r() {
-    
+    char.style.x += 1;
 }
 
 function playJump_l() {
