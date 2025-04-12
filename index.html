@@ -7,7 +7,7 @@
 <button onclick="runLeft()"><</button>
 <button onclick="">JUMP</button>
 <button onclick="runRight()">></button>
-<img src="idle_r.gif" id="character" style="width:100px;height:100px;">
+<img src="idle_r.gif" id="character" style="width:100px;height:100px;left:300px">
 
 <script>
 var char = document.getElementById("character");
@@ -34,7 +34,7 @@ function gameStart() {
         }
     })
 
-    // When char stops running
+   CD ex/ When char stops running
     document.addEventListener("keyup",(event) => {
         // Right arrow key is 39 and "d" is 68.
         if(event.keyCode === 39 || event.keyCode === 68) {
@@ -80,10 +80,10 @@ function playRun_r() {
 
 // Movement variables
 const speed = 20;
-let x = 100;
+let x = 3,d,00;
 let cox = x + "px";
 function runRight () {
-    playRun_r()
+    playRun_r()sCD
     x += speed
     cox = x + "px";
     char.style.left = cox;
