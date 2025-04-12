@@ -4,7 +4,9 @@
 <button onclick="gameStart()">Start</button>
 
 <p id="blank"></p>
+<button onclick="runLeft()"><</button>
 <button onclick="">JUMP</button>
+<button onclick="runRight()">></button>
 <img src="idle_r.gif" id="character" style="width:100px;height:100px;">
 
 <script>
@@ -76,6 +78,15 @@ function playRun_r() {
     char = newChar;
 }
 
+// Movement variables
+const speed = 20;
+let x = 100;
+let cox = x + "px";
+function runRight () {
+    playRun_r()
+    x += speed
+    char.style.left = cox;
+}
 function playRun_l() {
     const newChar = char.cloneNode();
     newChar.src = run_l;
@@ -84,7 +95,7 @@ function playRun_l() {
 }
 
 function playJump_r() {
-    char.style.x += 1;
+    
 }
 
 function playJump_l() {
